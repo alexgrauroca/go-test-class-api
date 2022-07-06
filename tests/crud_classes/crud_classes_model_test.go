@@ -1,4 +1,4 @@
-package tests_test
+package crud_classes_test
 
 import (
 	"context"
@@ -25,6 +25,7 @@ func TestMain(m *testing.M) {
 	}
 
 	repo, _ = mockdb.NewMockRepository()
+	repository.SetRepository(repo)
 
 	// Run tests
 	exitVal := m.Run()
@@ -35,7 +36,7 @@ func TestMain(m *testing.M) {
 
 func TestCreateClass(t *testing.T) {
 	assert.NotNil(t, c)
-	assert.NotNil(t, c.NewId())
+	assert.Nil(t, c.NewId())
 	assert.NotEmpty(t, c.Id)
 	assert.Nil(t, repository.InsertClass(context.Background(), &c))
 }
