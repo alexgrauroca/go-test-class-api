@@ -1,6 +1,7 @@
 package router
 
 import (
+	"go-test-class-api/handlers"
 	"go-test-class-api/server"
 	"net/http"
 
@@ -8,5 +9,5 @@ import (
 )
 
 func addRoutesV1(s server.Server, r *mux.Router) {
-	r.HandleFunc("/classes", handlers.InsertPostHandler(s)).Methods(http.MethodPost)
+	r.HandleFunc("/classes", handlers.InsertClassHandler(s)).Methods(http.MethodPost)
 }
