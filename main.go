@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"go-test-class-api/router"
 	"go-test-class-api/server"
 	"log"
 	"os"
