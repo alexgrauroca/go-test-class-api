@@ -1,0 +1,38 @@
+version: "3.9"
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+services:
+  db-production:
+    image: postgres:10.3
+    container_name: go-test-class-db-production
+    environment:
+      POSTGRES_USER: ${POSTGRES_PRODUCTION_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PRODUCTION_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_PRODUCTION_DB}
+    volumes:
+      - ./database/initdb:/docker-entrypoint-initdb.d
+    ports:
+      - ${POSTGRES_PRODUCTION_PORT}:5432
+    command: [ "postgres" ]
+    networks:
+      default:
+        ipv4_address: 172.25.0.2
+  db-test:
+    image: postgres:10.3
+    container_name: go-test-class-db-test
+    environment:
+      POSTGRES_USER: ${POSTGRES_TEST_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_TEST_DB}
+    volumes:
+      - ./database/initdb:/docker-entrypoint-initdb.d
+    ports:
+      - ${POSTGRES_TEST_PORT}:5432
+    command: [ "postgres" ]
+    networks:
+      default:
+        ipv4_address: 172.25.0.3

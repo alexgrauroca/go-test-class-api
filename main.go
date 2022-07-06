@@ -19,7 +19,7 @@ func main() {
 
 	s, err := server.NewServer(context.Background(), &server.Config{
 		Port:        os.Getenv("PORT"),
-		DatabaseUrl: os.Getenv("DATABASE_URL"),
+		DatabaseUrl: os.Getenv("DATABASE_PRODUCTION_URL"),
 	})
 
 	if err != nil {
