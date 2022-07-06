@@ -1,7 +1,10 @@
 package tests_test
 
 import (
+	"context"
+	mockdb "go-test-class-api/database/mock"
 	"go-test-class-api/models"
+	"go-test-class-api/repository"
 	"os"
 	"testing"
 	"time"
@@ -10,6 +13,7 @@ import (
 )
 
 var c models.Class
+var repo repository.Repository
 
 func TestMain(m *testing.M) {
 	// Before tests
@@ -20,6 +24,8 @@ func TestMain(m *testing.M) {
 		Capacity:  10,
 	}
 
+	repo, _ = mockdb.NewMockRepository()
+
 	// Run tests
 	exitVal := m.Run()
 
@@ -29,8 +35,9 @@ func TestMain(m *testing.M) {
 
 func TestCreateClass(t *testing.T) {
 	assert.NotNil(t, c)
-	assert.Nil(t, c.InsertClass())
+	assert.NotNil(t, c.NewId())
 	assert.NotEmpty(t, c.Id)
+	assert.Nil(t, repository.InsertClass(context.Background(), &c))
 }
 
 func TestReadClass(t *testing.T) {

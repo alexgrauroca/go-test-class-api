@@ -3,6 +3,7 @@ module go-test-class-api
 go 1.18
 
 require (
+	github.com/DATA-DOG/go-sqlmock v1.5.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect

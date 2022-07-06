@@ -13,7 +13,7 @@ type Class struct {
 	Capacity  int       `json:"capacity"`
 }
 
-func (c *Class) InsertClass() error {
+func (c *Class) NewId() error {
 	id, err := helpers.GenerateId()
 
 	if err != nil {
