@@ -1,6 +1,8 @@
 package server
 
 import (
+	postgresdb "go-test-class-api/database/postgres"
+	"go-test-class-api/repository"
 	"log"
 	"net/http"
 
@@ -25,14 +27,13 @@ func (b *Broker) Start(binder func(s Server, r *mux.Router)) {
 	binder(b, b.router)
 	// Enabling CORS for every origin
 	handler := cors.AllowAll().Handler(b.router)
-
-	/*repo, err := database.NewPostgresRepository(b.config.DatabaseUrl)
+	repo, err := postgresdb.NewPostgresRepository(b.config.DatabaseUrl)
 
 	if err != nil {
 		log.Fatal("Error connecting to db: ", err)
 	}
 
-	repository.SetRepository(repo)*/
+	repository.SetRepository(repo)
 
 	log.Println("Starting server on port", config.Port)
 
