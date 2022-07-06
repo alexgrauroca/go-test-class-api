@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"go-test-class-api/handlers"
 	"go-test-class-api/models"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -24,8 +23,6 @@ func TestApiV1InsertClass(t *testing.T) {
 
 	// Execute test request
 	rec := httptest.NewRecorder()
-	log.Println(req.Body)
-	log.Println(req.ContentLength)
 	handlers.InsertClass(rec, req)
 
 	res := rec.Result()
