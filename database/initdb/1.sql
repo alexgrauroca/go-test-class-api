@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS classes;
+CREATE TABLE classes (
+    id VARCHAR(32) PRIMARY KEY,
+    name VARCHAR(80) NOT NULL,
+    start_date TIMESTAMP NOT NULL DEFAULT NOW(),
+    end_date TIMESTAMP NOT NULL DEFAULT NOW(),
+    capacity INT DEFAULT 0
+);

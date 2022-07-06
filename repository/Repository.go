@@ -9,6 +9,7 @@ type Repository interface {
 	Close() error
 
 	InsertClass(ctx context.Context, c *models.Class) error
+	TruncateClass(ctx context.Context) error
 }
 
 var implementation Repository
