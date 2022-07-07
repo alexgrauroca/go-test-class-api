@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"go-test-class-api/router"
 	"go-test-class-api/server"
 	"log"
@@ -17,9 +18,21 @@ func main() {
 		log.Fatal("Error loading .env file: ", err)
 	}
 
+	appType := flag.String("run-mode", "production", "specify app running type: production or test")
+	flag.Parse()
+
+	databaseUrl := os.Getenv("DATABASE_PRODUCTION_URL")
+	port := os.Getenv("PRODUCTION_PORT")
+
+	if *appType == "test" {
+		log.Println("Running on test mode")
+		databaseUrl = os.Getenv("DATABASE_TEST_URL")
+		port = os.Getenv("TEST_PORT")
+	}
+
 	s, err := server.NewServer(context.Background(), &server.Config{
-		Port:        os.Getenv("PORT"),
-		DatabaseUrl: os.Getenv("DATABASE_PRODUCTION_URL"),
+		Port:        port,
+		DatabaseUrl: databaseUrl,
 	})
 
 	if err != nil {
