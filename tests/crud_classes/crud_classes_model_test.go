@@ -14,15 +14,3 @@ func TestCreateClass(t *testing.T) {
 	assert.NotEmpty(t, c.Id)
 	assert.Nil(t, repository.InsertClass(context.Background(), &c))
 }
-
-func TestReadClass(t *testing.T) {
-
-}
-
-func TestUpdateClass(t *testing.T) {
-
-}
-
-func TestDeleteClass(t *testing.T) {
-
-}

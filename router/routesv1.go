@@ -8,6 +8,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// addRoutesV1 Add v1 endpoints
 func addRoutesV1(s server.Server, r *mux.Router) {
 	r.HandleFunc("/classes", handlers.InsertClassHandler(s)).Methods(http.MethodPost)
 }
