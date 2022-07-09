@@ -38,3 +38,6 @@ Model and API testing are using mocked database, postgres is using postgres test
 
 ## API info
 I've created a GET /classes endpoint, in order to get all the classes createds with their id. As it wasn't at the requirements, this endpoint doesn't have any queryString params, like limit, offset, sort or any other filter.
+
+## Database
+I'm using postgres because I've used it in other projects, so I didn't need to search for the connection string. Since the use of the DB was optional, I didn't do any research on which database engine would be best for this project.

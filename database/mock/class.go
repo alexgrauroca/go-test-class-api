@@ -5,7 +5,7 @@ import (
 	"go-test-class-api/models"
 )
 
-func (repo *MockRepository) GetClasses(ctx context.Context) ([]*models.Class, error) {
+func (repo *MockRepository) GetClasses(ctx context.Context, filters *models.ClassFilter) ([]*models.Class, error) {
 	var emptyClasses []*models.Class
 	classes := repo.Classes
 

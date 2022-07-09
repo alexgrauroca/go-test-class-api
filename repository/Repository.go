@@ -9,7 +9,7 @@ type Repository interface {
 	Close() error
 
 	// Class functions
-	GetClasses(ctx context.Context) ([]*models.Class, error)
+	GetClasses(ctx context.Context, filters *models.ClassFilter) ([]*models.Class, error)
 	InsertClass(ctx context.Context, c *models.Class) error
 	TruncateClass(ctx context.Context) error
 

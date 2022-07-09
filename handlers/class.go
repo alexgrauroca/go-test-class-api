@@ -62,7 +62,8 @@ func GetClassesHandler(s server.Server) http.HandlerFunc {
 }
 
 func GetClasses(w http.ResponseWriter, r *http.Request) {
-	classes, err := repository.GetClasses(r.Context())
+	var filters = models.ClassFilter{}
+	classes, err := repository.GetClasses(r.Context(), &filters)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

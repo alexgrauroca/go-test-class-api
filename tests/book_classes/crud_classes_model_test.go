@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCreateClass(t *testing.T) {
+func TestCreateBooking(t *testing.T) {
 	assert.NotNil(t, booking)
 	assert.Nil(t, booking.NewId())
 	assert.NotEmpty(t, booking.Id)

@@ -5,8 +5,8 @@ import (
 	"go-test-class-api/models"
 )
 
-func GetClasses(ctx context.Context) ([]*models.Class, error) {
-	return implementation.GetClasses(ctx)
+func GetClasses(ctx context.Context, filters *models.ClassFilter) ([]*models.Class, error) {
+	return implementation.GetClasses(ctx, filters)
 }
 
 func InsertClass(ctx context.Context, c *models.Class) error {
