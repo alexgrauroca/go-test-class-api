@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  description: "This is a test RestAPI microservice, done in Go."
+  version: "1.0.0"
+  title: "go-test-class-api"
+  contact:
+    email: "alexgrauroca91@gmail.com"
+host: "localhost:5050"
+basePath: "/api/v1"
+tags:
+- name: "class"
+  description: "Operations about classes"
+- name: "booking"
+  description: "Operations abount bookings"
+schemes:
+- "http"
+paths:
+  /classes:
+    post:
+      tags:
+      - "class"
+      summary: "Add a new class"
+      operationId: "addClass"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Class object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateClass"
+      responses:
+        "201":
+          description: "Created class"
+          schema:
+            $ref: "#/definitions/Class"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+definitions:
+  Class:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      startDate:
+        type: "string"
+        format: "date-time"
+      endDate:
+        type: "string"
+        format: "date-time"
+      capacity:
+        type: "integer"
+        format: "int64"
+  CreateClass:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      startDate:
+        type: "string"
+        format: "date-time"
+      endDate:
+        type: "string"
+        format: "date-time"
+      capacity:
+        type: "integer"
+        format: "int64"

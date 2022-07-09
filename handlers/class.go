@@ -12,8 +12,8 @@ import (
 
 type InsertClassRequest struct {
 	Name      string    `json:"name"`
-	StartDate time.Time `json:"start_date"`
-	EndDate   time.Time `json:"end_date"`
+	StartDate time.Time `json:"startDate"`
+	EndDate   time.Time `json:"endDate"`
 	Capacity  int       `json:"capacity"`
 }
 
