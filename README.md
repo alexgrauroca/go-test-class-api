@@ -20,8 +20,21 @@ For production:
 
 There's a swagger.yml at doc/api with all the API documentation.
 
+## Testing
 To run the tests, I recommend to use the next command:
 
 `go test ./tests/... -p 1`
 
 I recommend to use the -p flag to 1, because if we use the concurrent tests, there's a possibility to found some issues relateds to the concurrencies and the different configurations.
+
+### MockDb
+The structs and funcs included at database/mock are used for testing. There are 3 types of tests:
+
+- Model testing.
+- API testing.
+- Postgres testing.
+
+Model and API testing are using mocked database, postgres is using postgres test container. This is because in that way I can control every different step of the processes, as I can validate if an error is caused by the database or by the code. Also, I can start coding without a database engine.
+
+## API info
+I've created a GET /classes endpoint, in order to get all the classes createds with their id. As it wasn't at the requirements, this endpoint doesn't have any queryString params, like limit, offset, sort or any other filter.

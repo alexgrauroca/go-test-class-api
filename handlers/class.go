@@ -17,6 +17,10 @@ type InsertClassRequest struct {
 	Capacity  int       `json:"capacity"`
 }
 
+type ClassesResponse struct {
+	Classes []*models.Class `json:"classes"`
+}
+
 func InsertClassHandler(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		InsertClass(w, r)
@@ -49,4 +53,26 @@ func InsertClass(w http.ResponseWriter, r *http.Request) {
 	}
 
 	helpers.HttpJsonResponse(w, c, http.StatusCreated)
+}
+
+func GetClassesHandler(s server.Server) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		GetClasses(w, r)
+	}
+}
+
+func GetClasses(w http.ResponseWriter, r *http.Request) {
+	classes, err := repository.GetClasses(r.Context())
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if len(classes) == 0 {
+		http.Error(w, "Classes not found", http.StatusNotFound)
+		return
+	}
+
+	helpers.HttpJsonResponse(w, ClassesResponse{Classes: classes}, http.StatusOK)
 }

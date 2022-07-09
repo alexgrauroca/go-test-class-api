@@ -2,3 +2,4 @@ vendor
 *.log
 main
 .idea
+*.out

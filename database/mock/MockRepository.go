@@ -1,6 +1,11 @@
 package mockdb
 
-type MockRepository struct{}
+import "go-test-class-api/models"
+
+type MockRepository struct {
+	// This is used for API testing
+	Classes []*models.Class
+}
 
 func NewMockRepository() (*MockRepository, error) {
 	return &MockRepository{}, nil
