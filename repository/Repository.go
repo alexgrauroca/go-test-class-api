@@ -12,6 +12,10 @@ type Repository interface {
 	GetClasses(ctx context.Context) ([]*models.Class, error)
 	InsertClass(ctx context.Context, c *models.Class) error
 	TruncateClass(ctx context.Context) error
+
+	// Booking functions
+	InsertBooking(ctx context.Context, c *models.Booking) error
+	TruncateBooking(ctx context.Context) error
 }
 
 var implementation Repository
