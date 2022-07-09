@@ -16,6 +16,27 @@ schemes:
 - "http"
 paths:
   /classes:
+    get:
+      tags:
+      - "class"
+      summary: "Get a list of existing classes"
+      operationId: "getClasses"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Classes found"
+          schema:
+            type: "object"
+            properties:
+              classes:
+                type: array
+                items:
+                  $ref: "#/definitions/Class"
+        "404":
+          description: "Classes not found"
+        "500":
+          description: "Internal server error"
     post:
       tags:
       - "class"
