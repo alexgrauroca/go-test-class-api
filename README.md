@@ -41,3 +41,4 @@ I've created a GET /classes endpoint, in order to get all the classes createds w
 
 ## Database
 I'm using postgres because I've used it in other projects, so I didn't need to search for the connection string. Since the use of the DB was optional, I didn't do any research on which database engine would be best for this project.
+
