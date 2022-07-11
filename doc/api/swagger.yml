@@ -8,13 +8,39 @@ info:
 host: "localhost:5050"
 basePath: "/api/v1"
 tags:
-- name: "class"
-  description: "Operations about classes"
 - name: "booking"
   description: "Operations abount bookings"
+- name: "class"
+  description: "Operations about classes"
 schemes:
 - "http"
 paths:
+  /bookings:
+    post:
+      tags:
+      - "booking"
+      summary: "Add a new booking"
+      operationId: "addBooking"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Booking object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateBooking"
+      responses:
+        "201":
+          description: "Created booking"
+          schema:
+            $ref: "#/definitions/Booking"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
   /classes:
     get:
       tags:
@@ -63,6 +89,16 @@ paths:
         "500":
           description: "Internal server error"
 definitions:
+  Booking:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      date:
+        type: "string"
+        format: "date-time"
   Class:
     type: "object"
     properties:
@@ -79,6 +115,14 @@ definitions:
       capacity:
         type: "integer"
         format: "int64"
+  CreateBooking:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      date:
+        type: "string"
+        format: "date-time"
   CreateClass:
     type: "object"
     properties:
