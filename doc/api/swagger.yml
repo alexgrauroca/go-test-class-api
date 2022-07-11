@@ -16,6 +16,27 @@ schemes:
 - "http"
 paths:
   /bookings:
+    get:
+      tags:
+      - "booking"
+      summary: "Get a list of existing bookings"
+      operationId: "getBookings"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Bookings found"
+          schema:
+            type: "object"
+            properties:
+              bookings:
+                type: array
+                items:
+                  $ref: "#/definitions/Booking"
+        "404":
+          description: "Bookings not found"
+        "500":
+          description: "Internal server error"
     post:
       tags:
       - "booking"

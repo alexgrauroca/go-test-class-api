@@ -4,6 +4,7 @@ import (
 	"context"
 	"testing"
 
+	"github.com/alexgrauroca/go-test-class-api/models"
 	"github.com/alexgrauroca/go-test-class-api/repository"
 
 	"github.com/stretchr/testify/assert"
@@ -32,4 +33,12 @@ func TestRepositoryInsertBooking(t *testing.T) {
 	assert.Nil(t, errorBooking.NewId())
 	assert.NotEmpty(t, errorBooking.Id)
 	assert.NotNil(t, repository.InsertBooking(context.Background(), &errorBooking))
+}
+
+func TestRepositoryGetBookings(t *testing.T) {
+	var expectedBookings []*models.Booking
+	bookings, err := repository.GetBookings(context.Background())
+
+	assert.Nil(t, err)
+	assert.IsType(t, expectedBookings, bookings)
 }

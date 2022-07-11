@@ -51,6 +51,7 @@ func TestApiV1InsertClass(t *testing.T) {
 	assert.Equal(t, c.EndDate, newC.EndDate)
 	assert.Equal(t, c.Capacity, newC.Capacity)
 }
+
 func TestApiV1GetClasses(t *testing.T) {
 	// Creating new test request
 	req, err := http.NewRequest("GET", "/api/v1/classes", nil)

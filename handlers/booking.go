@@ -16,6 +16,10 @@ type InsertBookingRequest struct {
 	Date time.Time `json:"date"`
 }
 
+type BookingsResponse struct {
+	Bookings []*models.Booking `json:"bookings"`
+}
+
 func InsertBookingHandler(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		InsertBooking(w, r)
@@ -52,4 +56,26 @@ func InsertBooking(w http.ResponseWriter, r *http.Request) {
 	}
 
 	helpers.HttpJsonResponse(w, booking, http.StatusCreated)
+}
+
+func GetBookingsHandler(s server.Server) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		GetBookings(w, r)
+	}
+}
+
+func GetBookings(w http.ResponseWriter, r *http.Request) {
+	bookings, err := repository.GetBookings(r.Context())
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if len(bookings) == 0 {
+		http.Error(w, "Bookings not found", http.StatusNotFound)
+		return
+	}
+
+	helpers.HttpJsonResponse(w, BookingsResponse{Bookings: bookings}, http.StatusOK)
 }

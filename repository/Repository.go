@@ -15,6 +15,7 @@ type Repository interface {
 	TruncateClass(ctx context.Context) error
 
 	// Booking functions
+	GetBookings(ctx context.Context) ([]*models.Booking, error)
 	InsertBooking(ctx context.Context, c *models.Booking) error
 	TruncateBooking(ctx context.Context) error
 }

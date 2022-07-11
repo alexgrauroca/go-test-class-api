@@ -4,7 +4,8 @@ import "github.com/alexgrauroca/go-test-class-api/models"
 
 type MockRepository struct {
 	// This is used for API testing
-	Classes []*models.Class
+	Classes  []*models.Class
+	Bookings []*models.Booking
 }
 
 func NewMockRepository() (*MockRepository, error) {

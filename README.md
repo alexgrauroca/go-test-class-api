@@ -41,5 +41,9 @@ Model and API testing are using mocked database, postgres is using postgres test
 ## API info
 I've created a GET /classes endpoint, in order to get all the classes createds with their id. As it wasn't at the requirements, this endpoint doesn't have any queryString params, like limit, offset, sort or any other filter.
 
+I've created a GET /bookings endpoint, in order to get all the bookings createds with their id. As it wasn't at the requirements, this endpoint doesn't have any queryString params, like limit, offset, sort or any other filter.
+
+The POST /bookings doesn't check if exists a booking for the same date and name, is it wasn't at the requirements and many people can have the same name.
+
 ## Database
 I'm using postgres because I've used it in other projects, so I didn't need to search for the connection string. Since the use of the DB was optional, I didn't do any research on which database engine would be best for this project.
