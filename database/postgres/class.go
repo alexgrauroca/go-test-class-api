@@ -34,7 +34,7 @@ func (repo *PostgresRepository) GetClasses(ctx context.Context, filters *models.
 		/*
 			AND (
 				start_date BETWEEN f.startDate AND f.endDate
-				OR end_date BETWEEN f.startDate AND f.endDate
+				OR end_date BETWEEN f.startDate AND fhttp.StatusInternalServerError.endDate
 				OR (
 					start_date <= f.startDate
 					AND f.endDate <= end_date

@@ -13,6 +13,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
+var booking models.Booking
 var c models.Class
 var repo repository.Repository
 
@@ -29,6 +30,19 @@ func TestMain(m *testing.M) {
 	// Decode class.json to models.Class
 	if err := json.NewDecoder(classFile).Decode(&c); err != nil {
 		log.Fatal("Error decoding class.json: ", err)
+	}
+
+	// Read booking.json
+	bookingFile, err := os.Open("./data/booking.json")
+	defer bookingFile.Close()
+
+	if err != nil {
+		log.Fatal("Error reading booking.json: ", err)
+	}
+
+	// Decode booking.json to models.Class
+	if err := json.NewDecoder(bookingFile).Decode(&booking); err != nil {
+		log.Fatal("Error decoding booking.json: ", err)
 	}
 
 	if err := godotenv.Load("./../../.env"); err != nil {
@@ -49,5 +63,6 @@ func TestMain(m *testing.M) {
 }
 
 func cleanTables() {
+	repository.TruncateBooking(context.Background())
 	repository.TruncateClass(context.Background())
 }

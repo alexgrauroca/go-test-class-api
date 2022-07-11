@@ -1,7 +1,7 @@
 package models
 
 import (
-	"errors"
+	"go-test-class-api/helpers"
 	"time"
 )
 
@@ -12,5 +12,13 @@ type Booking struct {
 }
 
 func (booking *Booking) NewId() error {
-	return errors.New("Not implemented")
+	id, err := helpers.GenerateId()
+
+	if err != nil {
+		return err
+	}
+
+	booking.Id = id
+
+	return nil
 }

@@ -1,9 +1,19 @@
 package handlers
 
 import (
+	"encoding/json"
+	"go-test-class-api/helpers"
+	"go-test-class-api/models"
+	"go-test-class-api/repository"
 	"go-test-class-api/server"
 	"net/http"
+	"time"
 )
+
+type InsertBookingRequest struct {
+	Name string    `json:"name"`
+	Date time.Time `json:"date"`
+}
 
 func InsertBookingHandler(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -12,5 +22,33 @@ func InsertBookingHandler(s server.Server) http.HandlerFunc {
 }
 
 func InsertBooking(w http.ResponseWriter, r *http.Request) {
-	http.Error(w, "Not implemented", http.StatusInternalServerError)
+	var bookingRequest = InsertBookingRequest{}
+
+	if err := json.NewDecoder(r.Body).Decode(&bookingRequest); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	booking := models.Booking{
+		Name: bookingRequest.Name,
+		Date: bookingRequest.Date,
+	}
+
+	if err := booking.NewId(); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if err := repository.InsertBooking(r.Context(), &booking); err != nil {
+		errorStatus := http.StatusInternalServerError
+
+		if err.Error() == "No classes are available for the specified date" {
+			errorStatus = http.StatusBadRequest
+		}
+
+		http.Error(w, err.Error(), errorStatus)
+		return
+	}
+
+	helpers.HttpJsonResponse(w, booking, http.StatusCreated)
 }

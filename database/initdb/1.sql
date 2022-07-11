@@ -6,3 +6,10 @@ CREATE TABLE classes (
     end_date TIMESTAMP NOT NULL DEFAULT NOW(),
     capacity INT DEFAULT 0
 );
+
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE bookings (
+    id VARCHAR(32) PRIMARY KEY,
+    name VARCHAR(80) NOT NULL,
+    date TIMESTAMP NOT NULL DEFAULT NOW()
+);

@@ -48,7 +48,13 @@ func InsertClass(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := repository.InsertClass(r.Context(), &c); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		errorStatus := http.StatusInternalServerError
+
+		if err.Error() == "There can only be one class a day" {
+			errorStatus = http.StatusBadRequest
+		}
+
+		http.Error(w, err.Error(), errorStatus)
 		return
 	}
 
