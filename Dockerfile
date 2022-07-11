@@ -2,16 +2,11 @@ ARG GO_VERSION=1.18.1
 
 FROM golang:${GO_VERSION}-alpine AS builder
 
-RUN go env -w GOPROXY=direct
-RUN apk add --no-cache git
-RUN apk add --no-cache ca-certificates && update-ca-certificates
+RUN go install github.com/alexgrauroca/go-test-class-api@latest
 
-WORKDIR /src
+ENV APP_HOME /go/src/go-test-class-api
+RUN mkdir -p "$APP_HOME"
 
-COPY . .
+WORKDIR "$APP_HOME"
 
-FROM alpine:3.11
-
-WORKDIR /usr/bin
-
-COPY --from=builder /go/bin .
+CMD [ "go", "run", "main.go" ]

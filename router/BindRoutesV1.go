@@ -1,7 +1,7 @@
 package router
 
 import (
-	"go-test-class-api/server"
+	"github.com/alexgrauroca/go-test-class-api/server"
 
 	"github.com/gorilla/mux"
 )

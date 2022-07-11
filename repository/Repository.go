@@ -2,7 +2,8 @@ package repository
 
 import (
 	"context"
-	"go-test-class-api/models"
+
+	"github.com/alexgrauroca/go-test-class-api/models"
 )
 
 type Repository interface {

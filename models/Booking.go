@@ -1,8 +1,9 @@
 package models
 
 import (
-	"go-test-class-api/helpers"
 	"time"
+
+	"github.com/alexgrauroca/go-test-class-api/helpers"
 )
 
 type Booking struct {

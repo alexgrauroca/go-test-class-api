@@ -1,6 +1,6 @@
 package mockdb
 
-import "go-test-class-api/models"
+import "github.com/alexgrauroca/go-test-class-api/models"
 
 type MockRepository struct {
 	// This is used for API testing

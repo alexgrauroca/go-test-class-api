@@ -3,7 +3,8 @@ package postgresdb
 import (
 	"context"
 	"errors"
-	"go-test-class-api/models"
+
+	"github.com/alexgrauroca/go-test-class-api/models"
 )
 
 func (repo *PostgresRepository) InsertBooking(ctx context.Context, booking *models.Booking) error {

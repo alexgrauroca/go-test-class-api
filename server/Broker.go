@@ -1,10 +1,11 @@
 package server
 
 import (
-	postgresdb "go-test-class-api/database/postgres"
-	"go-test-class-api/repository"
 	"log"
 	"net/http"
+
+	postgresdb "github.com/alexgrauroca/go-test-class-api/database/postgres"
+	"github.com/alexgrauroca/go-test-class-api/repository"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"

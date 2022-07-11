@@ -3,10 +3,11 @@ package postgresdb
 import (
 	"context"
 	"errors"
-	"go-test-class-api/models"
 	"log"
 	"strconv"
 	"strings"
+
+	"github.com/alexgrauroca/go-test-class-api/models"
 )
 
 func (repo *PostgresRepository) GetClasses(ctx context.Context, filters *models.ClassFilter) ([]*models.Class, error) {

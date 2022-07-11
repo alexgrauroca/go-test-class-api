@@ -7,9 +7,9 @@ import (
 	"os"
 	"testing"
 
-	postgresdb "go-test-class-api/database/postgres"
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
+	postgresdb "github.com/alexgrauroca/go-test-class-api/database/postgres"
+	"github.com/alexgrauroca/go-test-class-api/models"
+	"github.com/alexgrauroca/go-test-class-api/repository"
 
 	"github.com/joho/godotenv"
 )

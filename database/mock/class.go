@@ -2,7 +2,8 @@ package mockdb
 
 import (
 	"context"
-	"go-test-class-api/models"
+
+	"github.com/alexgrauroca/go-test-class-api/models"
 )
 
 func (repo *MockRepository) GetClasses(ctx context.Context, filters *models.ClassFilter) ([]*models.Class, error) {

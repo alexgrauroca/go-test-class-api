@@ -2,12 +2,13 @@ package handlers
 
 import (
 	"encoding/json"
-	"go-test-class-api/helpers"
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
-	"go-test-class-api/server"
 	"net/http"
 	"time"
+
+	"github.com/alexgrauroca/go-test-class-api/helpers"
+	"github.com/alexgrauroca/go-test-class-api/models"
+	"github.com/alexgrauroca/go-test-class-api/repository"
+	"github.com/alexgrauroca/go-test-class-api/server"
 )
 
 type InsertClassRequest struct {

@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	mockdb "go-test-class-api/database/mock"
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
+	mockdb "github.com/alexgrauroca/go-test-class-api/database/mock"
+	"github.com/alexgrauroca/go-test-class-api/models"
+	"github.com/alexgrauroca/go-test-class-api/repository"
 )
 
 var c models.Class

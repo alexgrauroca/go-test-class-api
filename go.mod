@@ -1,4 +1,4 @@
-module go-test-class-api
+module github.com/alexgrauroca/go-test-class-api
 
 go 1.18
 

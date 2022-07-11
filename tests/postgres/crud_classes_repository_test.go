@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
+	"github.com/alexgrauroca/go-test-class-api/models"
+	"github.com/alexgrauroca/go-test-class-api/repository"
 
 	"github.com/stretchr/testify/assert"
 )

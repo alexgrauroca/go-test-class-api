@@ -2,7 +2,8 @@ package repository
 
 import (
 	"context"
-	"go-test-class-api/models"
+
+	"github.com/alexgrauroca/go-test-class-api/models"
 )
 
 func InsertBooking(ctx context.Context, c *models.Booking) error {

@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"go-test-class-api/handlers"
-	"go-test-class-api/models"
+	"github.com/alexgrauroca/go-test-class-api/handlers"
+	"github.com/alexgrauroca/go-test-class-api/models"
 
 	"github.com/stretchr/testify/assert"
 )

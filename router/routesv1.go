@@ -1,9 +1,10 @@
 package router
 
 import (
-	"go-test-class-api/handlers"
-	"go-test-class-api/server"
 	"net/http"
+
+	"github.com/alexgrauroca/go-test-class-api/handlers"
+	"github.com/alexgrauroca/go-test-class-api/server"
 
 	"github.com/gorilla/mux"
 )
