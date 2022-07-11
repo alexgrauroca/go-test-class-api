@@ -38,7 +38,7 @@ func (b *Broker) Start(binder func(s Server, r *mux.Router)) {
 
 	log.Println("Starting server on port", config.Port)
 
-	if err := http.ListenAndServe(config.Port, handler); err != nil {
+	if err := http.ListenAndServe(":"+config.Port, handler); err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
 }

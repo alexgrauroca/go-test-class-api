@@ -39,10 +39,11 @@ services:
   classes-service-production:
     build: .
     container_name: go-test-class-service-production
+    command: go-test-class-api
     depends_on:
       - db-production
     ports:
-      - ${PRODUCTION_PORT}
+      - ${PRODUCTION_PORT}:${PRODUCTION_PORT}
     networks:
       default:
         ipv4_address: 172.25.0.4
