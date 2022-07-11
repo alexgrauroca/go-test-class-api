@@ -2,12 +2,13 @@ package crud_classes_test
 
 import (
 	"encoding/json"
-	mockdb "go-test-class-api/database/mock"
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
 	"log"
 	"os"
 	"testing"
+
+	mockdb "go-test-class-api/database/mock"
+	"go-test-class-api/models"
+	"go-test-class-api/repository"
 )
 
 var c models.Class

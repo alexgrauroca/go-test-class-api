@@ -1,0 +1,10 @@
+doc
+tests
+.git
+.gitignore
+*.log
+.idea
+*.out
+docker-compose.yml
+Dockerfile
+README.md

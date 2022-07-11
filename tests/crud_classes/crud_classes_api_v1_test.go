@@ -3,11 +3,12 @@ package crud_classes_test
 import (
 	"bytes"
 	"encoding/json"
-	"go-test-class-api/handlers"
-	"go-test-class-api/models"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"go-test-class-api/handlers"
+	"go-test-class-api/models"
 
 	"github.com/stretchr/testify/assert"
 )

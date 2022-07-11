@@ -3,12 +3,13 @@ package postgres_test
 import (
 	"context"
 	"encoding/json"
-	postgresdb "go-test-class-api/database/postgres"
-	"go-test-class-api/models"
-	"go-test-class-api/repository"
 	"log"
 	"os"
 	"testing"
+
+	postgresdb "go-test-class-api/database/postgres"
+	"go-test-class-api/models"
+	"go-test-class-api/repository"
 
 	"github.com/joho/godotenv"
 )

@@ -2,9 +2,10 @@ package postgres_test
 
 import (
 	"context"
+	"testing"
+
 	"go-test-class-api/models"
 	"go-test-class-api/repository"
-	"testing"
 
 	"github.com/stretchr/testify/assert"
 )

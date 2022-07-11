@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"flag"
-	"go-test-class-api/router"
-	"go-test-class-api/server"
 	"log"
 	"os"
+
+	"github.com/alexgrauroca/go-test-class-api/server"
+
+	"github.com/alexgrauroca/go-test-class-api/router"
 
 	"github.com/joho/godotenv"
 )

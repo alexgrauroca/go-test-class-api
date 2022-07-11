@@ -36,3 +36,13 @@ services:
     networks:
       default:
         ipv4_address: 172.25.0.3
+  classes-service-production:
+    build: .
+    container_name: go-test-class-service-production
+    depends_on:
+      - db-production
+    ports:
+      - ${PRODUCTION_PORT}
+    networks:
+      default:
+        ipv4_address: 172.25.0.4
