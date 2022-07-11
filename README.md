@@ -2,7 +2,7 @@
 
 This is a test RestAPI microservice, done in Go.
 
-To start the server, you need to run `docker compose up -d`. Docker will create two postgres containers, one for production and other for testing.
+To start the server, you need to run `docker compose up -d`. Docker will create two postgres containers, one for production and other for testing, and one app container, called classes-service-production. This means that starting docker compose, the API will be ready to handle requests.
 
 To run the application in production mode, you need to run `go run main.go`.
 
@@ -17,6 +17,8 @@ For production:
 
 - Database port: 54321
 - API port: 5051
+
+If there's any change to .env params, it's important to rebuild the classes-service-production image.
 
 There's a swagger.yml at doc/api with all the API documentation.
 
@@ -34,7 +36,7 @@ The structs and funcs included at database/mock are used for testing. There are 
 - API testing.
 - Postgres testing.
 
-Model and API testing are using mocked database, postgres is using postgres test container. This is because in that way I can control every different step of the processes, as I can validate if an error is caused by the database or by the code. Also, I can start coding without a database engine.
+Model and API testing are using mocked database, postgres is using postgres test container, because in that way I can control every different step of the processes, as I can validate if an error is caused by the database or by the code. Also, I can start coding without a database engine.
 
 ## API info
 I've created a GET /classes endpoint, in order to get all the classes createds with their id. As it wasn't at the requirements, this endpoint doesn't have any queryString params, like limit, offset, sort or any other filter.
